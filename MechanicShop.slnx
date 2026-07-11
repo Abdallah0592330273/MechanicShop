@@ -1,0 +1,12 @@
+<Solution>
+  <Project Path="MechanicShop.Api/MechanicShop.Api.csproj">
+    <BuildDependency Project="MechanicShop.Application/MechanicShop.Application.csproj" />
+    <BuildDependency Project="MechanicShop.Infrastruture/MechanicShop.Infrastruture.csproj" />
+  </Project>
+  <Project Path="MechanicShop.Application/MechanicShop.Application.csproj" />
+  <Project Path="MechanicShop.Domain/MechanicShop.Domain.csproj" />
+  <Project Path="MechanicShop.Infrastruture/MechanicShop.Infrastruture.csproj">
+    <BuildDependency Project="MechanicShop.Application/MechanicShop.Application.csproj" />
+    <BuildDependency Project="MechanicShop.Domain/MechanicShop.Domain.csproj" />
+  </Project>
+</Solution>
