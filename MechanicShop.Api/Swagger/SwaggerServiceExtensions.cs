@@ -20,7 +20,7 @@ public static class SwaggerServiceExtensions
                     true;
 
                 options.ReportApiVersions = true;
-                options.ApiVersionReader = new MediaTypeApiVersionReader("api-version");
+                options.ApiVersionReader = new MediaTypeApiVersionReader("X-Api-Version");
 
 
                 /* new HeaderApiVersionReader(

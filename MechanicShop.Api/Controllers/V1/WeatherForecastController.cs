@@ -1,12 +1,11 @@
 using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MechanicShop.Api.Controllers
+namespace MechanicShop.Api.Controllers.V1
 {
     [ApiController]
     [ApiVersion("1.0")]
-    [ApiVersion("2.0")]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries =
@@ -16,8 +15,8 @@ namespace MechanicShop.Api.Controllers
 
         [ApiVersion("1.0")]
 
-        [HttpGet(Name = "GetWeatherForecast_1v")]
-        public IEnumerable<WeatherForecast> GetWeatherForecastv1()
+        [HttpGet]
+        public IEnumerable<WeatherForecast> GetWeatherForecast()
         {
             Console.WriteLine("you in version 1 guid congratolation");
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -28,6 +27,24 @@ namespace MechanicShop.Api.Controllers
             })
             .ToArray();
         }
-       
+
+       /* [ApiVersion("2.0")]
+        [HttpGet]
+        public IEnumerable<WeatherForecast> GetWeatherForecastTwo()
+        {
+            Console.WriteLine("you in version 2 guid congratolation");
+
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+
+            })
+            .ToArray();
+
+        }*/
+
     }
 }

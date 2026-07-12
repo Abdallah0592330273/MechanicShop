@@ -1,0 +1,11 @@
+﻿@baseUrl = https://localhost:7236
+
+### Get wetherforcast status 
+Get {{baseUrl}}/api/WeatherForecast
+Accept: application/json; X-Api-Version=1.0
+
+### Get wetherforcast status 
+Get {{baseUrl}}/api/WeatherForecast
+Accept: application/json; X-Api-Version=2.0
+//accept: text/json; X-Api-Version=2.0
+//accept: text/plain; X-Api-Version=2.0

@@ -1,12 +1,12 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MechanicShop.Api.Controllers
+namespace MechanicShop.Api.Controllers.V2
 {
     [ApiController]
     [ApiVersion("2.0")]
-    [Route("[controller]")]
-    public class WeatherForecastV2Controller 
+    [Route("api/[controller]")]
+    public class WeatherForecastController
     {
         private static readonly string[] Summaries =
             [
