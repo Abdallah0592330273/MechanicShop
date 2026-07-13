@@ -9,6 +9,12 @@ public sealed class InvoiceLineItem
     private InvoiceLineItem()
     { }
 
+    public Guid InvoiceId { get; }
+    public int LineNumber { get; }
+    public string Description { get; }
+    public int Quantity { get; }
+    public decimal UnitPrice { get; }
+    public decimal LineTotal => Quantity * UnitPrice;
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
     private InvoiceLineItem(Guid invoiceId, int lineNumber, string description, int quantity, decimal unitPrice)
@@ -20,12 +26,6 @@ public sealed class InvoiceLineItem
         UnitPrice = unitPrice;
     }
 
-    public Guid InvoiceId { get; }
-    public int LineNumber { get; }
-    public string Description { get; }
-    public int Quantity { get; }
-    public decimal UnitPrice { get; }
-    public decimal LineTotal => Quantity * UnitPrice;
 
     public static Result<InvoiceLineItem> Create(
         Guid invoiceId,
