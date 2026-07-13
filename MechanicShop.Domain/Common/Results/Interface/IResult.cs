@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MechanicShop.Domain.Common.Results;
 
-namespace MechanicShop.Domain.Common.Results.Interface
+namespace ToDo.Domain.Common.Results.Abstractions;
+
+public interface IResult
 {
-    internal class IResult
-    {
-    }
+    List<Error>? Errors { get; }
+
+    bool IsSuccess { get; }
+}
+
+public interface IResult<out TValue> : IResult
+{
+    TValue Value { get; }
 }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace MechanicShop.Domain.Identity;
 
-namespace MechanicShop.Domain.Identity
+public enum Role
 {
-    internal class Role
-    {
-    }
+    // we put all system roles here 
+    Labor,
+    Manager
 }

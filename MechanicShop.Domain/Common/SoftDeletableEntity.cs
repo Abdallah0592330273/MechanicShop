@@ -1,4 +1,6 @@
-﻿namespace MechanicShop.Domain.Common.Entities;
+﻿using MechanicShop.Domain.Common.Results;
+
+namespace MechanicShop.Domain.Common.Entities;
 
 public abstract class SoftDeletableEntity : AuditableEntity
 {
@@ -17,23 +19,27 @@ public abstract class SoftDeletableEntity : AuditableEntity
 
     public Guid? DeletedByUserId { get; private set; }
 
-    public void SoftDelete(DateTimeOffset utcNow, Guid? userId)
+    public Result<Deleted> SoftDelete(DateTimeOffset utcNow, Guid? userId)
     {
         if (IsDeleted)
-            return;
+            return Error.NotFound("delete","object already deleted");
 
         IsDeleted = true;
         DeletedAtUtc = utcNow;
         DeletedByUserId = userId;
+        return Result.Deleted;
+
     }
 
-    public void Restore()
+    public Result<Success> Restore()
     {
         if (!IsDeleted)
-            return;
+            return Error.Failure("delete.entity","the object not deleted yet");
 
         IsDeleted = false;
         DeletedAtUtc = null;
         DeletedByUserId = null;
+
+        return Result.Success;
     }
 }
